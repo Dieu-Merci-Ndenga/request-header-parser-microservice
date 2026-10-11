@@ -1,0 +1,13 @@
+{
+  "name": "request-header-parser-microservice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FreeCodeCamp Request Header Parser Microservice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
