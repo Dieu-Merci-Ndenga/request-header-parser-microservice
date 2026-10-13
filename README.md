@@ -1,30 +1,36 @@
 # Request Header Parser Microservice
 
-A lightweight API that parses request headers and returns information about the client making the request.
+A lightweight API built with Node.js and Express that extracts key client information from incoming HTTP request headers and returns it as JSON.
+
+## Overview
+
+This service is designed to parse and expose the following values from the request:
+
+- `ipaddress`: the client's IP address
+- `language`: the preferred language from the `Accept-Language` header
+- `software`: browser and operating-system details from the `User-Agent` header
+
+It is ideal for learning how to work with HTTP headers and build a small backend API.
 
 ## Live Demo
 
-Try the deployed API here:
+The application is deployed and available here:
 
-**[https://request-header-parser-microservice-fcni.onrender.com](https://request-header-parser-microservice-fcni.onrender.com)**
-
-To use the API directly, visit:
-
-**[https://request-header-parser-microservice-fcni.onrender.com/api/whoami](https://request-header-parser-microservice-fcni.onrender.com/api/whoami)**
+- Demo URL: https://request-header-parser-microservice-fcni.onrender.com
+- API endpoint: https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 
 ## Features
 
-- Detects the client's IP address
-- Identifies the preferred language from the `Accept-Language` header
-- Identifies the client's browser and operating system from the `User-Agent` header
-- Provides a simple JSON API response
-- Can be run locally or accessed through the deployed demo
+- Reads client metadata directly from incoming HTTP headers
+- Returns structured JSON responses
+- Works locally with a simple Node.js setup
+- Easy to test via browser or `curl`
 
-## API Reference
+## API Endpoint
 
-### `GET /api/whoami`
+### GET /api/whoami
 
-Returns information extracted from the request headers.
+Returns the client metadata extracted from the request headers.
 
 #### Example request
 
@@ -38,18 +44,16 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 {
   "ipaddress": "127.0.0.1",
   "language": "en-US,en;q=0.9",
-  "software": "Mozilla/5.0 ..."
+  "software": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 }
 ```
 
-> The returned values depend on the headers sent by the client making the request.
-
-## Run Locally
+## Local Development
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) installed on your machine
-- npm, which is included with Node.js
+- Node.js (v18 or later is recommended)
+- npm
 
 ### Installation
 
@@ -59,25 +63,25 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
    git clone https://github.com/Dieu-Merci-Ndenga/request-header-parser-microservice.git
    ```
 
-2. Move into the project directory:
+2. Navigate to the project directory:
 
    ```bash
    cd request-header-parser-microservice
    ```
 
-3. Install the dependencies:
+3. Install dependencies:
 
    ```bash
    npm install
    ```
 
-4. Start the application:
+4. Start the server:
 
    ```bash
    npm start
    ```
 
-5. Open the application in your browser:
+5. Open the application in a browser at:
 
    ```text
    http://localhost:3000
@@ -93,9 +97,9 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 
 | Field | Description |
 | --- | --- |
-| `ipaddress` | The client's IP address, based on the incoming request |
-| `language` | The client's preferred language from the `Accept-Language` header |
-| `software` | Browser and operating-system information from the `User-Agent` header |
+| `ipaddress` | The client's IP address as seen in the request |
+| `language` | The client's language preference from the `Accept-Language` header |
+| `software` | The client browser and operating system details from the `User-Agent` header |
 
 ## Project Structure
 
@@ -103,19 +107,18 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 .
 ├── README.md
 ├── package.json
+├── server.js
 └── src/
     └── ...
 ```
 
-The exact source layout may vary depending on the project implementation.
-
-## Technologies Used
+## Technology Stack
 
 - Node.js
-- Express.js
+- Express
 - JavaScript
-- HTTP request headers
+- HTTP request handling
 
 ## License
 
-This project is available for educational and personal use.
+This project is intended for educational and personal use.
