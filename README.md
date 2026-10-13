@@ -1,6 +1,6 @@
 # Request Header Parser Microservice
 
-A lightweight API that parses request headers and returns information about the client making the request. This project is a solution to the [FreeCodeCamp Request Header Parser Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/microservices-projects/request-header-parser-microservice/) challenge.
+A lightweight API that parses request headers and returns information about the client making the request.
 
 ## Live Demo
 
@@ -115,14 +115,6 @@ The exact source layout may vary depending on the project implementation.
 - Express.js
 - JavaScript
 - HTTP request headers
-
-## FreeCodeCamp Requirements
-
-This API fulfills the core requirements of the FreeCodeCamp challenge by providing a `/api/whoami` endpoint that returns the client's:
-
-- IP address
-- Preferred language
-- Browser and operating-system information
 
 ## License
 
