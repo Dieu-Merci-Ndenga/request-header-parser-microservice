@@ -1,36 +1,37 @@
 # Request Header Parser Microservice
 
-A lightweight API built with Node.js and Express that extracts key client information from incoming HTTP request headers and returns it as JSON.
-
-## Overview
-
-This service is designed to parse and expose the following values from the request:
-
-- `ipaddress`: the client's IP address
-- `language`: the preferred language from the `Accept-Language` header
-- `software`: browser and operating-system details from the `User-Agent` header
-
-It is ideal for learning how to work with HTTP headers and build a small backend API.
+A lightweight REST API built with Node.js and Express that identifies key client details from incoming HTTP request headers and returns them in a structured JSON response.
 
 ## Live Demo
 
-The application is deployed and available here:
+Try the deployed application:
 
-- Demo URL: https://request-header-parser-microservice-fcni.onrender.com
-- API endpoint: https://request-header-parser-microservice-fcni.onrender.com/api/whoami
+- **Application:** [request-header-parser-microservice-fcni.onrender.com](https://request-header-parser-microservice-fcni.onrender.com)
+- **API endpoint:** [GET /api/whoami](https://request-header-parser-microservice-fcni.onrender.com/api/whoami)
+
+## About the Project
+
+The Request Header Parser Microservice extracts useful client information from standard HTTP headers. It was created as a practical example of working with request metadata, building a simple Express API, and returning consistent JSON responses.
+
+For each request to `/api/whoami`, the service returns:
+
+- The client's IP address
+- The preferred language from the `Accept-Language` header
+- Browser and operating-system information from the `User-Agent` header
 
 ## Features
 
-- Reads client metadata directly from incoming HTTP headers
-- Returns structured JSON responses
-- Works locally with a simple Node.js setup
-- Easy to test via browser or `curl`
+- Extracts client metadata directly from HTTP request headers
+- Provides a simple JSON API response
+- Includes a publicly accessible live deployment
+- Can be tested from a browser, command line, or API client
+- Uses a minimal and easy-to-understand Node.js and Express setup
 
-## API Endpoint
+## API Reference
 
-### GET /api/whoami
+### `GET /api/whoami`
 
-Returns the client metadata extracted from the request headers.
+Returns information about the client making the request.
 
 #### Example request
 
@@ -48,12 +49,22 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 }
 ```
 
-## Local Development
+> The values returned by the API depend on the headers sent by the client and the hosting environment processing the request.
+
+## Response Fields
+
+| Field | Description |
+| --- | --- |
+| `ipaddress` | The client's IP address as identified by the server or hosting platform. |
+| `language` | The client's preferred language, taken from the `Accept-Language` request header. |
+| `software` | Browser and operating-system information taken from the `User-Agent` request header. |
+
+## Getting Started Locally
 
 ### Prerequisites
 
-- Node.js (v18 or later is recommended)
-- npm
+- [Node.js](https://nodejs.org/) version 18 or later
+- npm, included with Node.js
 
 ### Installation
 
@@ -63,48 +74,40 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
    git clone https://github.com/Dieu-Merci-Ndenga/request-header-parser-microservice.git
    ```
 
-2. Navigate to the project directory:
+2. Change into the project directory:
 
    ```bash
    cd request-header-parser-microservice
    ```
 
-3. Install dependencies:
+3. Install the project dependencies:
 
    ```bash
    npm install
    ```
 
-4. Start the server:
+4. Start the development server:
 
    ```bash
    npm start
    ```
 
-5. Open the application in a browser at:
-
-   ```text
-   http://localhost:3000
-   ```
-
-   Or call the API directly:
+5. Open the local API endpoint:
 
    ```text
    http://localhost:3000/api/whoami
    ```
 
-## Response Fields
+You can also test the endpoint with `curl`:
 
-| Field | Description |
-| --- | --- |
-| `ipaddress` | The client's IP address as seen in the request |
-| `language` | The client's language preference from the `Accept-Language` header |
-| `software` | The client browser and operating system details from the `User-Agent` header |
+```bash
+curl http://localhost:3000/api/whoami
+```
 
 ## Project Structure
 
 ```text
-.
+request-header-parser-microservice/
 ├── README.md
 ├── package.json
 ├── server.js
@@ -114,10 +117,20 @@ curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 
 ## Technology Stack
 
-- Node.js
-- Express
-- JavaScript
-- HTTP request handling
+- **Node.js** — JavaScript runtime
+- **Express** — Web application framework
+- **JavaScript** — Application language
+- **HTTP headers** — Source of client metadata
+
+## Use Cases
+
+This project is useful for learning and demonstrating:
+
+- How HTTP request headers work
+- How to access request metadata in Express
+- How to create a simple REST endpoint
+- How to return structured JSON from a backend service
+- How to deploy a Node.js application for public access
 
 ## License
 
