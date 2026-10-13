@@ -111,7 +111,7 @@ request-header-parser-microservice/
 ├── README.md
 ├── package.json
 ├── server.js
-└── src/
+└── public/
     └── ...
 ```
 
