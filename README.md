@@ -1,13 +1,129 @@
 # Request Header Parser Microservice
 
-This project implements the FreeCodeCamp Request Header Parser Microservice challenge.
+A lightweight API that parses request headers and returns information about the client making the request. This project is a solution to the [FreeCodeCamp Request Header Parser Microservice](https://www.freecodecamp.org/learn/back-end-development-and-apis/microservices-projects/request-header-parser-microservice/) challenge.
 
-## Run locally
+## Live Demo
+
+Try the deployed API here:
+
+**[https://request-header-parser-microservice-fcni.onrender.com](https://request-header-parser-microservice-fcni.onrender.com)**
+
+To use the API directly, visit:
+
+**[https://request-header-parser-microservice-fcni.onrender.com/api/whoami](https://request-header-parser-microservice-fcni.onrender.com/api/whoami)**
+
+## Features
+
+- Detects the client's IP address
+- Identifies the preferred language from the `Accept-Language` header
+- Identifies the client's browser and operating system from the `User-Agent` header
+- Provides a simple JSON API response
+- Can be run locally or accessed through the deployed demo
+
+## API Reference
+
+### `GET /api/whoami`
+
+Returns information extracted from the request headers.
+
+#### Example request
 
 ```bash
-npm start
+curl https://request-header-parser-microservice-fcni.onrender.com/api/whoami
 ```
 
-Open `http://localhost:3000`, or request `http://localhost:3000/api/whoami` directly.
+#### Example response
 
-The API returns the requester's `ipaddress`, `language`, and `software` values from the request headers.
+```json
+{
+  "ipaddress": "127.0.0.1",
+  "language": "en-US,en;q=0.9",
+  "software": "Mozilla/5.0 ..."
+}
+```
+
+> The returned values depend on the headers sent by the client making the request.
+
+## Run Locally
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed on your machine
+- npm, which is included with Node.js
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Dieu-Merci-Ndenga/request-header-parser-microservice.git
+   ```
+
+2. Move into the project directory:
+
+   ```bash
+   cd request-header-parser-microservice
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the application:
+
+   ```bash
+   npm start
+   ```
+
+5. Open the application in your browser:
+
+   ```text
+   http://localhost:3000
+   ```
+
+   Or call the API directly:
+
+   ```text
+   http://localhost:3000/api/whoami
+   ```
+
+## Response Fields
+
+| Field | Description |
+| --- | --- |
+| `ipaddress` | The client's IP address, based on the incoming request |
+| `language` | The client's preferred language from the `Accept-Language` header |
+| `software` | Browser and operating-system information from the `User-Agent` header |
+
+## Project Structure
+
+```text
+.
+├── README.md
+├── package.json
+└── src/
+    └── ...
+```
+
+The exact source layout may vary depending on the project implementation.
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- JavaScript
+- HTTP request headers
+
+## FreeCodeCamp Requirements
+
+This API fulfills the core requirements of the FreeCodeCamp challenge by providing a `/api/whoami` endpoint that returns the client's:
+
+- IP address
+- Preferred language
+- Browser and operating-system information
+
+## License
+
+This project is available for educational and personal use.
